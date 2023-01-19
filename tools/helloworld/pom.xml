@@ -12,9 +12,6 @@
     <artifactId>helloworld</artifactId>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <workflow.dir.name>user.workflow.B9F8F3B8-9A7A-4D69-A4FE-88F9F1D39DC0</workflow.dir.name>
     </properties>
 
@@ -32,7 +29,7 @@
     </dependencies>
 
     <build>
-        <finalName>helloWorld</finalName>
+        <finalName>${artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -66,6 +63,9 @@
                                 <resource>
                                     <directory>${build.directory}</directory>
                                     <filtering>false</filtering>
+                                    <includes>
+                                        <include>${build.finalName}.jar</include>
+                                    </includes>
                                 </resource>
                             </resources>
                         </configuration>
